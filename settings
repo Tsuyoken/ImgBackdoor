@@ -1,0 +1,120 @@
+##############################################################################
+#                                                                            #
+#   The following config file will allow you to customize settings within    #
+#   FakeImageExploiter tool, The lines that Do not have comment code ("#")   #
+#   are the fields you want to toy with. There are additional options, read  #
+#   the comments For additional config settings.                             #
+#                                                                            #
+# CHANGING THIS SETTINGS WILL AFFECT 'ImgBackdoor.sh' WAY OF WORKING	 	 #
+#                                                                            #
+##############################################################################
+
+
+
+
+## FakeImageExploiter uses by default .jpg extensions
+# (picture input by user) but it can be configurated
+# to use other extensions, just change the next value.
+# values accepted are: jpg | jpeg | png | etc
+---------------------
+PICTURE_EXTENSION=jpg
+---------------------
+
+
+
+## ImageBackdoor uses by default .ps1 extensions
+# (payload input by user) but it can be configurated
+# to use other extensions, just change the next value.
+# values accepted are: ps1 | bat | txt | exe
+---------------------
+PAYLOAD_EXTENSION=exe
+---------------------
+
+
+
+## Bypass the use of Resource-Hacker funtion
+# This nex settings allow users to bypass the
+# changing agent.jpg.exe icon (.ico) replacement.
+# WARNING: you will need to replace the icon manually.
+# values accepted are: NO or YES
+------------
+BYPASS_RH=NO
+------------
+
+
+
+## Apache2 webroot (local) full path.
+# This setting its required to use apache2
+# webserver to deliver agent.zip to target.
+# Please check your apache2 webroot install.
+----------------------------
+APACHE_WEBROOT=/var/www/html
+----------------------------
+
+
+
+## Use a non-metasploit payload (payload user input)
+# This setting allow users to metamorphosis your own binary (eg netcat)
+# using FakeImageExploiter tool (all files will be ported to apache)
+# And start your currespondent binary handler (listener) manually ..
+# values accepted are: NO or YES
+-------------------
+NON_MSF_PAYLOADS=NO
+-------------------
+
+
+
+## THE NOOB FRIENDLY FUNTION ..
+# This funtion forces FakeImageExploiter to build the
+# payload.ps1 without the user needs to manually build it.
+# ---
+# WARNING: This funtion will only build: ( ps1 | bat |txt ).
+# WARNING: This funtion will use: 'payload_extension=' settings.
+# values accepted are: NO and YES
+---------------------
+AUTO_PAYLOAD_BUILD=NO
+AGENT_HANDLER_PORT=666
+---------------------
+
+
+
+## FAKE WORD DOC FUNTION (word.docx) ..
+# This funtion allow users to change agent icon to match one
+# word_doc file, And changes the extension to: agent.docx.exe
+# --
+# HINT: select also 'picture_extension=docx' and chose as image
+# FakeImageExploiter/bin/word.docx that it will execute the docx
+# document instead of opening image.jpg
+# values accepted are: NO and YES
+----------------
+FAKE_WORD_DOC=NO
+----------------
+
+
+
+## USE YOUR PUBLIC IP (to deliver payloads over wan)
+# This funtion requieres user to set is machine as a webserver
+# and use your public ip addr to deliver agent.jpg.exe over wan ..
+# ---
+# To use this funtion we need to set 'use_public_ip=yes'
+# and write your public_ip value to match your ip addr.
+----------------
+USE_PUBLIC_IP=NO
+EXTERNAL_IP=write_public_address_here
+----------------
+
+
+
+### msf postgresql database connection check ? (msfdb init)
+# This next setting allow users to check msf postgresql
+# connection status and rebuild msfdb if not connected.
+# values accepted are: OFF or ON
+---------------
+MSF_REBUILD=OFF
+---------------
+
+
+
+
+_EOF
+
