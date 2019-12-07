@@ -1,10 +1,20 @@
+
+![ImgBackdoor v1.0](Cheese_Sat-07Dec19_17.19.png)
+<br>
 [![Version](https://img.shields.io/badge/ImgBackdoor-1.0-brightgreen.svg?maxAge=259200)]()
 [![Stage](https://img.shields.io/badge/Release-Stable-red.svg)]()
 [![Build](https://img.shields.io/badge/Supported_OS-kali,Ubuntu,Mint,Parrot-blue.svg)]()
 [![License](https://img.shields.io/badge/Apache_License-2.0-yellow.svg)]()
 
+     _____                 ____             _       _                  
+    |_   _|               |  _ \           | |     | |                 
+      | |  _ __ ___   __ _| |_) | __ _  ___| | ____| | ___   ___  _ __ 
+      | | | '_ ` _ \ / _` |  _ < / _` |/ __| |/ / _` |/ _ \ / _ \| '__|
+     _| |_| | | | | | (_| | |_) | (_| | (__|   < (_| | (_) | (_) | |   
+    |_____|_| |_| |_|\__, |____/ \__,_|\___|_|\_\__,_|\___/ \___/|_|   
+                      __/ |                                            
+                     |___/                                               
 
-## ImgBackdoor v1.0 - backdoor images.jpg[.ps1]
     Version release: v1.0 (Stable)
     Author: Ferdi S Kennedy [ kennedy69 ]
     Distros Supported : Linux Ubuntu, Kali, Mint, Parrot OS
