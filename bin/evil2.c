@@ -1,6 +1,5 @@
 /*
-Author: pedro ubuntu [ r00t-3xp10it ]
-Credits: mascerano [ exe execution ]
+Author: Ferdi S Kennedy [ kennedy69 ]
 Credits: null byte [ Method POC ]
 */
 
