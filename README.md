@@ -105,7 +105,7 @@
 
 ## Download/Install/Config:
     1 - Download framework from github
-         git clone https://github.com/kennedy69/ImgBackdoor
+         git clone https://github.com/Tsuyoken/ImgBackdoor
 
     2 - Set files execution permitions
          cd ImgBackdoor
